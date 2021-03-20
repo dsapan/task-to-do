@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+	{% block title %} task_to_doapp  {% endblock %}
+	<style>
+		<link rel="stylesheet" href="{% static 'css/c1.css' %}"  >
+	
+	
+	</style>
+</head>
+<body>
+	{% block content %}
+	<h2> Hello {{ user.username }} </h2>
+	{% endblock %}
+
+
+</body>
+
+
+</html>
