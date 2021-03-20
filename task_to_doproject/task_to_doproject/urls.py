@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from task_to_doapp.views import home,createtask
+from task_to_doapp.views import home,createtask,viewtask
 from authapp.views import usignup,ulogin,ulogout,uforgotpass,uchangepass
 
 urlpatterns = [
@@ -27,6 +27,7 @@ urlpatterns = [
     path('ufogotpass/',uforgotpass,name='uforgotpass'),
     path('uchangepass/',uchangepass,name='uchangepass'),
     path('createtask/',createtask,name='createtask'),
+     path('viewtask/',viewtask,name='viewtask'),
  
 
 ]

@@ -15,12 +15,13 @@
 	
 	<form method="POST">
 		{% csrf_token %}
-		<table border="5">
+		<table border="2">
 			{{ fm.as_table }}
 		</table> <br>
 		<input type="submit" value="Save">
 
 	</form>
+	{{ msg }}
 	
 
 </center>

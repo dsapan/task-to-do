@@ -1,0 +1,47 @@
+<html>{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+	{% block title %} createtask  {% endblock %}
+	<style type="text/css">
+		*{
+
+			font-size: 40px;
+		}
+		<link rel="stylesheet" href="{% static 'css/c1.css' %}"  >
+	
+	
+	</style>
+</head>
+{% block content %}
+<body>
+	<center>
+		<table border="2 
+		">
+			<tr>
+				<th> TaskNo </th>
+				<th> Task </th>
+				<th> Date</th>
+			</tr>
+			{% if data %}
+			{% for d in data %}
+			<tr>
+				<td> {{ d.tno  }}</td>
+				<td>{{ d.task }} </td>
+				<td> {{ d.task_dt  }}</td>
+			</tr>
+			{% endfor %}
+			{% else %}
+				<td> No Data </td>
+			{% endif %}
+		</table> <br>
+
+	
+</center>
+</body>
+{% endblock %}
+
+
+</html>
+
+</html>
