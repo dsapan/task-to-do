@@ -1,0 +1,33 @@
+<html>{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
+	{% block title %} createtask  {% endblock %}
+	<style>
+		<link rel="stylesheet" href="{% static 'css/c1.css' %}"  >
+	
+	
+	</style>
+</head>
+{% block content %}
+<body>
+	<center>
+	
+	<form method="POST">
+		{% csrf_token %}
+		<table border="5">
+			{{ fm.as_table }}
+		</table> <br>
+		<input type="submit" value="Save">
+
+	</form>
+	
+
+</center>
+</body>
+{% endblock %}
+
+
+</html>
+
+</html>

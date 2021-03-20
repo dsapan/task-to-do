@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from .forms import TForm
 
 # Create your views here.
 
@@ -7,3 +8,6 @@ def home(request):
 		return render(request,'home.html')
 	else:
 		return redirect('ulogin')
+def createtask(request):
+	fm=TForm()
+	return render(request,'createtask.html',{'fm':fm})
