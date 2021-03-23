@@ -1,0 +1,29 @@
+<html>
+{% extends 'base.html' %}
+{% load static %}
+<head>
+	{% block title %} checkweather  {% endblock %}
+	<style>
+		<link rel="stylesheet" href="{% static 'css/c1.css' %}"  >
+	
+	
+	</style>
+</head>
+{% block content %}
+<body>
+
+	<center>  
+		<h1> Weather App  </h1>
+		<form method="post">
+		{% csrf_token %}
+		<input type="text" name="city" placeholder="Enter City Name " required >
+			<br> <br>
+		<input type="submit" value="Search">
+		</form>
+		<h2> {{ msg }} <img src={{ icon }} > </h2>
+		
+	</center>
+
+</body>
+{% endblock %}
+</html>

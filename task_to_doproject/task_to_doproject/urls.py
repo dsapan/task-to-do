@@ -15,19 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from task_to_doapp.views import home,createtask,viewtask
+from task_to_doapp.views import home,createtask,viewtask,checkweather,deletetask
 from authapp.views import usignup,ulogin,ulogout,uforgotpass,uchangepass
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-     path('',home,name='home'),
+    path('',home,name='home'),
     path('usignup/',usignup,name='usignup'),
     path('ulogin/',ulogin,name='ulogin'),
     path('ulogout/',ulogout,name='ulogout'),
     path('ufogotpass/',uforgotpass,name='uforgotpass'),
     path('uchangepass/',uchangepass,name='uchangepass'),
     path('createtask/',createtask,name='createtask'),
-     path('viewtask/',viewtask,name='viewtask'),
- 
+    path('viewtask/',viewtask,name='viewtask'),
+    path('checkweather/',checkweather,name='checkweather'),
+    path('deletetask/<int:id>',deletetask,name='deletetask'),
 
 ]

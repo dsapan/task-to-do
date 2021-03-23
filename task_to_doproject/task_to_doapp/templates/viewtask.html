@@ -1,4 +1,4 @@
-<html>{% extends 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 <html>
 <head>
@@ -15,20 +15,21 @@
 </head>
 {% block content %}
 <body>
-	<center>
-		<table border="2 
-		">
+	<center><br><br>
+		<table border="2" width=60%>
 			<tr>
-				<th> TaskNo </th>
+				<th style="height:70px"> TaskNo </th>
 				<th> Task </th>
 				<th> Date</th>
+				<th> Delete </th>
 			</tr>
 			{% if data %}
 			{% for d in data %}
 			<tr>
 				<td> {{ d.tno  }}</td>
-				<td>{{ d.task }} </td>
+				<td style="height:80px">{{ d.task }} </td>
 				<td> {{ d.task_dt  }}</td>
+				<td><a href="{% url 'deletetask' id=d.tno %}" onclick="return confirm('Are You Sure ??')"> Delete </a> </td>
 			</tr>
 			{% endfor %}
 			{% else %}
