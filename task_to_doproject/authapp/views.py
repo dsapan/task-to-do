@@ -19,6 +19,7 @@ def usignup(request):
 			except User.DoesNotExist:
 				usr=User.objects.create_user(username=un,password=pw1)
 				usr.save()
+				print("hey sign")
 				return redirect('ulogin')
 		else:
 			return render(request,'usignup.html',{'msg':'password did not match '})
@@ -28,8 +29,11 @@ def usignup(request):
 def ulogin(request):
 	if request.method=="POST":
 		un=request.POST.get('un')
+		print(un)
 		pw=request.POST.get('pw')
+		print(pw)
 		usr=authenticate(username=un,password=pw)
+		print("hey login")
 
 		if usr is None:
 			return render(request,'ulogin.html',{'msg':'Invalid Login'})

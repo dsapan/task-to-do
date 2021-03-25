@@ -6,3 +6,7 @@ class TForm(forms.ModelForm):
 		model=TModel
 		fields='__all__'
 
+		widgets ={'task' : forms.Textarea(attrs={'rows':6,'cols':80, 
+			'style':'resize:none','placeholder':'Write Tasks Here'}),
+			'tno':forms.NumberInput(attrs={'placeholder':'Task No '})}
+
