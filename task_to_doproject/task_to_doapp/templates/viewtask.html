@@ -99,9 +99,7 @@
     text-decoration: none;
     outline: none !important;
   }
-  table.table td a:hover {
-    color: #2196F3;
-  }
+
   table.table td a.edit {
         color: #FFC107;
     }
@@ -275,7 +273,7 @@ $(document).ready(function(){
               <td>{{ d.task_dt  }}</td>
               <td>
             
-                <a href="{% url 'deletetask' id=d.tno %}" onclick="return confirm('Are You Sure ? ')" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                <a href="{% url 'deletetask' id=d.task %}" onclick="return confirm('Are You Sure ? ')" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
                 
               </td>
             </tr>

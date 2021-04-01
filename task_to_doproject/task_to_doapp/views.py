@@ -2,8 +2,11 @@ from django.shortcuts import render,redirect
 from .forms import TForm
 from .models import TModel
 import requests
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+
 
 def home(request):
 	if request.user.is_authenticated:
@@ -24,11 +27,15 @@ def home(request):
 	else:
 		return redirect('ulogin')
 
+@login_required(login_url='http://127.0.0.1:8000/ulogin/')
 def createtask(request):
 	if request.method=="POST":
 		f=TForm(request.POST)
 		if f.is_valid():
-			f.save()
+			tno=f.cleaned_data["tno"]
+			task=f.cleaned_data["task"]
+			t=TModel(tno=tno,task=task,task_dt=request.POST.get('task_dt'),user=request.user)
+			t.save()
 			fm=TForm()
 			return render(request,'createtask.html',{'fm':fm,'msg':'Task Uploaded'})
 		else:
@@ -38,11 +45,13 @@ def createtask(request):
 		fm=TForm()
 		return render(request,'createtask.html',{'fm':fm})
 
-
+@login_required(login_url='http://127.0.0.1:8000/ulogin/')
 def viewtask(request):
-	data=TModel.objects.all()
+	log_user=request.user
+	data=TModel.objects.filter(user=log_user)
 	return render(request,'viewtask.html',{'data':data})
 
+@login_required(login_url='http://127.0.0.1:8000/ulogin/')
 def checkweather(request):
 	if request.method == "POST":
 		try:
@@ -71,9 +80,10 @@ def checkweather(request):
 			return render(request,'checkweather.html',{'msg':'City Not Found '})
 	else:
 		return render(request,'checkweather.html')
-		
+
+@login_required(login_url='http://127.0.0.1:8000/ulogin/')		
 def deletetask(request,id):
-	tdata=TModel.objects.get(tno=id)
+	tdata=TModel.objects.get(task=id)
 	tdata.delete()
 	return redirect('viewtask')
 

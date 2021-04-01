@@ -5,6 +5,7 @@ from random import randrange
 from task_to_doproject.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 
+
 # Create your views here.
 
 def usignup(request):
@@ -66,7 +67,7 @@ def uforgotpass(request):
 			usr=User.objects.get(username=un)
 			usr.set_password(pw)
 			usr.save()
-			return redirect('ulogin')
+			return render(request,'uforgotpass.html',{'msg':'Please Check Mail'})
 
 		except User.DoesNotExist:
 			return render(request,'uforgotpass.html',{'msg':'Username /Email-Id Does Not Exists '})

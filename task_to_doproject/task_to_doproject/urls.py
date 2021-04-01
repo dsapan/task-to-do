@@ -29,6 +29,6 @@ urlpatterns = [
     path('createtask/',createtask,name='createtask'),
     path('viewtask/',viewtask,name='viewtask'),
     path('checkweather/',checkweather,name='checkweather'),
-    path('deletetask/<int:id>',deletetask,name='deletetask'),
+    path('deletetask/<str:id>',deletetask,name='deletetask'),
 
 ]

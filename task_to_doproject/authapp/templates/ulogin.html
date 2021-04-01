@@ -42,7 +42,8 @@
 <div class="login-form">
     <form method="POST" action="{% url 'ulogin' %}">
     	{% csrf_token %}
-        <h2 class="text-center">Log In</h2>   
+        <h2 class="text-center">Log In</h2> 
+
         <div class="form-group">
         	<div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -60,12 +61,12 @@
             <button type="submit" class="btn btn-primary btn-block">Log in</button>
         </div>
         <div class="clearfix">
-            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
+            
             <a href="{% url 'uforgotpass' %}" class="pull-right">Forgot Password?</a>
         </div>        
-    </form><br> <br>
-    {{ msg }}
-    <p class="text-center small">Don't have an account! <a href="{% url 'usignup' %}">Sign up here</a>.</p>
+    </form><br>
+    <center><h3 style="color:red;">{{ msg }}</h3></center>
+    <b><p class="text-center small">Don't have an account! <a href="{% url 'usignup' %}">Sign up here</a>.</p></b>
 </div>
 </body>
 </html>
